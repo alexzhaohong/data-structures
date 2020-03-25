@@ -21,7 +21,7 @@ var stackMethods = {
     var lastKey = keys[keys.length - 1];
     var lastProp = this.storage[lastKey];
     delete this.storage[lastKey];
-
+    
     return lastProp;
   },
   size() {
