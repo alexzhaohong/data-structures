@@ -2,7 +2,7 @@ describe('set', function() {
   var set;
 
   beforeEach(function() {
-    set = Set();
+    set = new Set();
   });
 
   it('should have methods named "add", "contains", and "remove"', function() {
@@ -16,6 +16,14 @@ describe('set', function() {
     set.add('Danny Glover');
     expect(set.contains('Danny Glover')).to.equal(true);
     expect(set.contains('Susan Sarandon')).to.equal(true);
+  });
+
+  // Own unit test
+  it('should not add duplicate values to a set', function() {
+    set.add('Danny Glover');
+    set.add('Danny Glover');
+    expect(set.contains('Danny Glover')).to.equal(true);
+    expect(_.size(set._storage)).to.equal(1);
   });
 
   it('should remove values from a set', function() {
