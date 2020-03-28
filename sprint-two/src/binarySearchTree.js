@@ -71,41 +71,29 @@ class BinarySearchTree {
   }
 
   // .depthFirstLog() method, which accepts a callback and executes it on every value contained in the tree. O(n)
+  // cb = var func = function(value) { array.push(value); };
+  // run callback function on thisNode
+  // recurse on leftNode
+  // recurse on rightNode
   depthFirstLog(cb) {
-  // if thisNode is null, return undefined
-  // else, recurse on leftNode
-  // now run callback function on thisNode
-  // then recurse on rightNode
 
-    if (!this) {
-      return undefined;
-    }
-    if (!this.left) {
-      return undefined;
-    }
+    cb(this.value);
+
     if (this.left) {
       this.left.depthFirstLog(cb);
     }
 
-    // var func = function(value) { array.push(value); };
-    cb(this.value);
-
-    if (!this.right) {
-      return undefined;
-    }
     if (this.right) {
       this.right.depthFirstLog(cb);
     }
-
-
   }
-
 };
+
 
 var BTS = new BinarySearchTree(5);
 
  // .left property, a BST where all values are lower than the current value.
- // .right property, a BST where all values are higher than the current value.
+ // .right property, a BST where all values are higher than the current value.¡
  // .insert() method, which accepts a value and places it in the tree in the correct position. O(logn)
  // .contains() method, which accepts a value and returns a boolean reflecting whether or not the value is contained in the tree. O(logn)
  // .depthFirstLog() method, which accepts a callback and executes it on every value contained in the tree. O(n)
